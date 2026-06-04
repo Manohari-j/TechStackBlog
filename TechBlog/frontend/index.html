@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStack Blog — Learn the Full Stack</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">TechStack</span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#topics">Topics</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#posts">Posts</a>
+        <a href="#about">About</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">A living, learning project</p>
+      <h1 class="hero-title">Full-Stack <em>Azure</em><br>Engineering Blog</h1>
+      <p class="hero-sub">
+        One project. Six technologies. Infinite learning. Built with HTML, CSS, JavaScript, SQL, C# REST API, and Microsoft Azure — all working together.
+      </p>
+      <div class="hero-tags">
+        <span class="tag tag-html">HTML/CSS</span>
+        <span class="tag tag-js">JavaScript</span>
+        <span class="tag tag-sql">SQL</span>
+        <span class="tag tag-cs">C# / .NET</span>
+        <span class="tag tag-api">REST API</span>
+        <span class="tag tag-azure">Azure</span>
+      </div>
+    </div>
+    <div class="hero-graphic" aria-hidden="true">
+      <div class="code-block">
+        <span class="line"><span class="kw">GET</span> /api/posts</span>
+        <span class="line"><span class="cm">// 200 OK</span></span>
+        <span class="line">{</span>
+        <span class="line">  <span class="str">"title"</span>: <span class="str">"Azure Logic Apps"</span>,</span>
+        <span class="line">  <span class="str">"tech"</span>: [<span class="str">"C#"</span>, <span class="str">"Azure"</span>, <span class="str">"SQL"</span>]</span>
+        <span class="line">}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE BANNER -->
+  <section id="architecture" class="arch-section">
+    <div class="arch-inner">
+      <h2 class="section-title">How It All Connects</h2>
+      <p class="section-sub">Every layer talks to the next. Here's the full picture.</p>
+      <div class="arch-flow">
+        <div class="arch-node">
+          <div class="arch-icon">🌐</div>
+          <div class="arch-label">Browser</div>
+          <div class="arch-desc">HTML + CSS + JS</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="arch-icon">⚡</div>
+          <div class="arch-label">REST API</div>
+          <div class="arch-desc">C# / ASP.NET</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">
+          <div class="arch-icon">🗄️</div>
+          <div class="arch-label">Database</div>
+          <div class="arch-desc">Azure SQL</div>
+        </div>
+        <div class="arch-arrow arch-arrow-up">↑</div>
+        <div class="arch-node arch-node-azure">
+          <div class="arch-icon">☁️</div>
+          <div class="arch-label">Azure Cloud</div>
+          <div class="arch-desc">Hosting + Auth + Monitoring</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPIC CARDS -->
+  <section id="topics" class="topics-section">
+    <div class="section-inner">
+      <h2 class="section-title">Learn Each Technology</h2>
+      <p class="section-sub">Click any card to read the full post. New posts added weekly.</p>
+      <div id="postsGrid" class="posts-grid">
+        <!-- Filled by JavaScript -->
+        <div class="loading-state">Loading posts from API...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT POSTS -->
+  <section id="posts" class="recent-section">
+    <div class="section-inner">
+      <h2 class="section-title">Recent Posts</h2>
+      <div id="recentList" class="recent-list">
+        <!-- Filled by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-inner">
+      <h2 class="section-title">About This Project</h2>
+      <p>
+        This blog is itself the learning project. Every post explains a technology used to build this very site.
+        The frontend is pure HTML, CSS, and JavaScript. The backend is a C# ASP.NET Core API.
+        The data lives in Azure SQL. Everything is hosted on Microsoft Azure and deployed via GitHub Actions.
+      </p>
+      <p>
+        The source code is fully open on GitHub. Clone it, run it locally, deploy your own version.
+        Every commit is a step in the learning journey.
+      </p>
+      <a href="https://github.com/your-username/TechStackBlog" class="cta-btn" target="_blank" rel="noopener">
+        View on GitHub →
+      </a>
+    </div>
+  </section>
+
+  <!-- POST MODAL -->
+  <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Close post">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="logo"><span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span></span>
+      <span>Built to learn. Shared to teach.</span>
+      <span>© 2025 — MIT License</span>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

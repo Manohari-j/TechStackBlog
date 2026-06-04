@@ -1,0 +1,30 @@
+# ─── .NET / C# ───────────────────────────────────────────────────
+bin/
+obj/
+*.user
+*.suo
+.vs/
+publish/
+*.nupkg
+appsettings.Development.json   # local secrets — NEVER commit this!
+
+# ─── Node / npm (if you add a frontend build step later) ─────────
+node_modules/
+dist/
+.npm/
+
+# ─── Environment / Secrets ───────────────────────────────────────
+.env
+.env.local
+*.env
+secrets.json
+
+# ─── OS Files ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDE Files ───────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
