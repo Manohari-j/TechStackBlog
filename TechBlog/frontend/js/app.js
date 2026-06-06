@@ -11,7 +11,7 @@
 // When deployed to Azure, set API_BASE_URL to your Azure App Service URL.
 // ─────────────────────────────────────────────────────────────────
 
-const API_BASE_URL = "https://your-api.azurewebsites.net/api";
+const API_BASE_URL = "https://techblog-api-h0fdc9hkf5hmadg0.westus2-01.azurewebsites.net/api";
 // Change this ↑ to your actual Azure API URL when deployed.
 // For local development: "http://localhost:5000/api"
 
