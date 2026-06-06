@@ -37,13 +37,13 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore NuGet packages
-      run: dotnet restore backend/TechBlog.Api.csproj
+      run: dotnet restore TechBlog/backend/TechBlog.Api.csproj
 
     - name: Build (Release mode)
-      run: dotnet build backend/TechBlog.Api.csproj --configuration Release --no-restore
+      run: dotnet build TechBlog/backend/TechBlog.Api.csproj --configuration Release --no-restore
 
     - name: Run tests
-      run: dotnet test backend/TechBlog.Api.csproj --no-restore --verbosity normal
+      run: dotnet test TechBlog/backend/TechBlog.Api.csproj --no-restore --verbosity normal
       continue-on-error: true   # don't fail the pipeline if no tests yet
 
     - name: Publish (create deployment package)
@@ -52,7 +52,7 @@ jobs:
     - name: Deploy to Azure App Service
       uses: azure/webapps-deploy@v3
       with:
-        app-name: 'your-api-app-name'   # ← change to your App Service name
+        app-name: 'techblog-api-h0fdc9hkf5hmadg0'   # ← change to your App Service name
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ./publish
 
