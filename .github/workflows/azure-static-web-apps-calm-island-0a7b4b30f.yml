@@ -34,7 +34,6 @@ jobs:
           cd ./publish
           zip -r ../deploy.zip .
           cd ..
-          echo "Zip created:"
           ls -la deploy.zip
 
       - name: Upload artifact
@@ -56,13 +55,6 @@ jobs:
         with:
           name: dotnet-app
 
-      - name: Verify download
-        run: |
-          echo "Files available:"
-          ls -la
-          echo "Zip size:"
-          du -sh deploy.zip
-
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -76,8 +68,3 @@ jobs:
           app-name: 'techblog-api'
           slot-name: 'Production'
           package: deploy.zip
-
-      - name: Verify deployment
-        run: |
-          echo "Deployment completed at $(date)"
-          echo "App URL: https://techblog-api-h0fdc9hkf5hmadg0.westus2-01.azurewebsites.net"
