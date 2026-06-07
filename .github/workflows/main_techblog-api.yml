@@ -23,17 +23,24 @@ jobs:
       - name: Restore packages
         run: dotnet restore TechBlog/backend/TechBlog.Api.csproj
 
-      - name: Build with dotnet
+      - name: Build
         run: dotnet build TechBlog/backend/TechBlog.Api.csproj --configuration Release --no-restore
 
-      - name: dotnet publish
-        run: dotnet publish TechBlog/backend/TechBlog.Api.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Publish
+        run: dotnet publish TechBlog/backend/TechBlog.Api.csproj -c Release -o ./publish
 
-      - name: Upload artifact for deployment job
+      - name: Zip publish output
+        run: |
+          cd ./publish
+          zip -r ../deploy.zip .
+          cd ..
+          ls -la deploy.zip
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: dotnet-app
+          path: deploy.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,10 +50,10 @@ jobs:
       contents: read
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: dotnet-app
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -60,4 +67,4 @@ jobs:
         with:
           app-name: 'techblog-api'
           slot-name: 'Production'
-          package: .
+          package: deploy.zip
