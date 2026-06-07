@@ -31,6 +31,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Show project structure
+      run: |
+        find . -name "*.csproj" -type f
+        find . -name "*.cs" -type f
+        cat TechBlog/backend/TechBlog.Api.csproj
+
     - name: Setup .NET 8
       uses: actions/setup-dotnet@v4
       with:
