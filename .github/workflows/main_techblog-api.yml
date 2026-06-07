@@ -58,6 +58,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'techblog-api-h0fdc9hkf5hmadg0'
+          app-name: 'techblog-api'
           slot-name: 'Production'
           package: .
