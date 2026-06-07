@@ -1,46 +1,83 @@
-name: Azure Static Web Apps CI/CD
+name: Build and deploy ASP.Net Core app to Azure Web App
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+  build:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-          lfs: false
-      - name: Build And Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_ISLAND_0A7B4B30F }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-          action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "TechBlog/frontend" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+    permissions:
+      contents: read
 
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
     steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_ISLAND_0A7B4B30F }}
-          action: "close"
+          dotnet-version: '8.0.x'
+
+      - name: Restore packages
+        run: dotnet restore TechBlog/backend/TechBlog.Api.csproj
+
+      - name: Build
+        run: dotnet build TechBlog/backend/TechBlog.Api.csproj --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish TechBlog/backend/TechBlog.Api.csproj -c Release -o ./publish
+
+      - name: Zip publish output
+        run: |
+          cd ./publish
+          zip -r ../deploy.zip .
+          cd ..
+          echo "Zip created:"
+          ls -la deploy.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-app
+          path: deploy.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dotnet-app
+
+      - name: Verify download
+        run: |
+          echo "Files available:"
+          ls -la
+          echo "Zip size:"
+          du -sh deploy.zip
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AC8C52F06BB047F8ADAB46B1CD158A96 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_27AFF64725C443FD9BAE60EA39AB1A81 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B5A08A97A33E4568BD4BFC9E064FE544 }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'techblog-api'
+          slot-name: 'Production'
+          package: deploy.zip
+
+      - name: Verify deployment
+        run: |
+          echo "Deployment completed at $(date)"
+          echo "App URL: https://techblog-api-h0fdc9hkf5hmadg0.westus2-01.azurewebsites.net"
