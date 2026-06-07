@@ -3,7 +3,7 @@
 > **One project. Six technologies. Infinite learning.**
 > This blog is itself the learning material — every post explains a technology used to build the very site you are reading.
 
-[![Deploy Status](https://github.com/your-username/TechStackBlog/actions/workflows/deploy.yml/badge.svg)](https://github.com/your-username/TechStackBlog/actions)
+[![Deploy Status](https://github.com/Manohari-j/TechStackBlog/actions/workflows/deploy.yml/badge.svg)](https://github.com/Manohari-j/TechStackBlog/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
