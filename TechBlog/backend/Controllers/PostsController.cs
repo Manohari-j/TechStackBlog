@@ -10,11 +10,13 @@ public class PostsController : ControllerBase
 {
     private readonly IPostService _postService;
     private readonly ILogger<PostsController> _logger;
+    private readonly BlogDbContext _context;
 
-    public PostsController(IPostService postService, ILogger<PostsController> logger)
+    public PostsController(IPostService postService, ILogger<PostsController> logger, BlogDbContext context)
     {
         _postService = postService;
         _logger = logger;
+        _context = context;
     }
 
     [HttpGet]
@@ -49,4 +51,22 @@ public class PostsController : ControllerBase
         if (!deleted) return NotFound();
         return NoContent();
     }
+
+    [HttpPut("{id:int}")]
+public async Task<ActionResult<PostDto>> Update(int id, [FromBody] CreatePostDto dto)
+{
+    var post = await _context.Posts.FindAsync(id);
+    if (post == null) return NotFound();
+
+    post.Title = dto.Title;
+    post.Slug = dto.Slug;
+    post.Excerpt = dto.Excerpt ?? post.Excerpt;
+    post.Content = dto.Content;
+    post.Tech = dto.Tech;
+    post.ReadingTime = dto.ReadingTime;
+    post.UpdatedAt = DateTime.UtcNow;
+
+    await _context.SaveChangesAsync();
+    return Ok(post);
+}
 }
