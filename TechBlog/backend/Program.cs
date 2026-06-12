@@ -21,7 +21,7 @@ builder.Services.AddCors(options => {
     options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins(
             "http://localhost:3000",
-            "https://calm-island-0a7b4b30f.7.azurestaticapps.net"
+            "https://calm-island-0a7b4b30f.7.azurestaticapps.net",
             "https://www.techstackblog.com"
         )
         .AllowAnyMethod()
