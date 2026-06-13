@@ -2,73 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://techstackblog.com</loc>
+    <loc>https://www.techstackblog.com</loc>
     <lastmod>2026-06-12</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#html-css-foundation</loc>
+    <loc>https://www.techstackblog.com/#html-css-foundation</loc>
     <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#javascript-interactivity</loc>
+    <loc>https://www.techstackblog.com/#javascript-interactivity</loc>
     <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#sql-database-basics</loc>
+    <loc>https://www.techstackblog.com/#sql-database-basics</loc>
     <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#csharp-rest-api</loc>
+    <loc>https://www.techstackblog.com/#csharp-rest-api</loc>
     <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#rest-api-design</loc>
+    <loc>https://www.techstackblog.com/#rest-api-design</loc>
     <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#azure-cloud-hosting</loc>
+    <loc>https://www.techstackblog.com/#azure-cloud-hosting</loc>
     <lastmod>2026-06-06</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#azure-logic-apps-intro</loc>
+    <loc>https://www.techstackblog.com/#azure-logic-apps-intro</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#azure-service-bus-deep-dive</loc>
+    <loc>https://www.techstackblog.com/#azure-service-bus-deep-dive</loc>
     <lastmod>2026-06-09</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#azure-api-management-deep-dive</loc>
+    <loc>https://www.techstackblog.com/#azure-api-management-deep-dive</loc>
     <lastmod>2026-06-10</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#azure-function-apps-deep-dive</loc>
+    <loc>https://www.techstackblog.com/#azure-function-apps-deep-dive</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://techstackblog.com/#azure-app-insights-deep-dive</loc>
+    <loc>https://www.techstackblog.com/#azure-app-insights-deep-dive</loc>
     <lastmod>2026-06-12</lastmod>
     <priority>0.8</priority>
   </url>
