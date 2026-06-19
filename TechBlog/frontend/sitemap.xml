@@ -1,76 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://www.techstackblog.com</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://www.techstackblog.com</loc><lastmod>2026-06-14</lastmod><priority>1.0</priority></url>
 
-  <url>
-    <loc>https://www.techstackblog.com/#html-css-foundation</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.techstackblog.com/category.html?cat=azure</loc><lastmod>2026-06-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.techstackblog.com/category.html?cat=csharp</loc><lastmod>2026-06-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.techstackblog.com/category.html?cat=computer-science</loc><lastmod>2026-06-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.techstackblog.com/category.html?cat=web</loc><lastmod>2026-06-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.techstackblog.com/category.html?cat=database</loc><lastmod>2026-06-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.techstackblog.com/category.html?cat=devops</loc><lastmod>2026-06-14</lastmod><priority>0.9</priority></url>
 
-  <url>
-    <loc>https://www.techstackblog.com/#javascript-interactivity</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#sql-database-basics</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#csharp-rest-api</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#rest-api-design</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#azure-cloud-hosting</loc>
-    <lastmod>2026-06-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#azure-logic-apps-intro</loc>
-    <lastmod>2026-06-08</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#azure-service-bus-deep-dive</loc>
-    <lastmod>2026-06-09</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#azure-api-management-deep-dive</loc>
-    <lastmod>2026-06-10</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#azure-function-apps-deep-dive</loc>
-    <lastmod>2026-06-11</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.techstackblog.com/#azure-app-insights-deep-dive</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=html-css-foundation</loc><lastmod>2026-06-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=javascript-interactivity</loc><lastmod>2026-06-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=sql-database-basics</loc><lastmod>2026-06-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=csharp-rest-api</loc><lastmod>2026-06-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=rest-api-design</loc><lastmod>2026-06-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=azure-cloud-hosting</loc><lastmod>2026-06-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=azure-logic-apps-intro</loc><lastmod>2026-06-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=azure-service-bus-deep-dive</loc><lastmod>2026-06-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=azure-api-management-deep-dive</loc><lastmod>2026-06-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=azure-function-apps-deep-dive</loc><lastmod>2026-06-11</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=azure-app-insights-deep-dive</loc><lastmod>2026-06-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=csharp-lambda-linq-deep-dive</loc><lastmod>2026-06-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.techstackblog.com/post.html?slug=cicd-yaml-azure-devops-deep-dive</loc><lastmod>2026-06-14</lastmod><priority>0.8</priority></url>
 
 </urlset>
