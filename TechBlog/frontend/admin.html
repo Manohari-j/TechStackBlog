@@ -7,389 +7,129 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:        #0F0F0E;
-      --bg2:       #1A1A18;
-      --bg3:       #242422;
-      --border:    rgba(255,255,255,0.08);
-      --border2:   rgba(255,255,255,0.14);
-      --text:      #F0EFE8;
-      --text2:     #888884;
-      --accent:    #60A5FA;
-      --accent-bg: rgba(96,165,250,0.08);
-      --green:     #34D399;
-      --green-bg:  rgba(52,211,153,0.08);
-      --red:       #F87171;
-      --red-bg:    rgba(248,113,113,0.08);
-      --amber:     #FCD34D;
-      --radius:    10px;
-      --font:      'Inter', sans-serif;
-      --mono:      'IBM Plex Mono', monospace;
+      --bg: #0F0F0E; --bg2: #1A1A18; --bg3: #242422;
+      --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
+      --text: #F0EFE8; --text2: #888884;
+      --accent: #60A5FA; --accent-bg: rgba(96,165,250,0.08);
+      --green: #34D399; --green-bg: rgba(52,211,153,0.08);
+      --red: #F87171; --red-bg: rgba(248,113,113,0.08);
+      --radius: 10px; --font: 'Inter', sans-serif; --mono: 'IBM Plex Mono', monospace;
     }
-
     html { height: 100%; }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    /* ── LOGIN SCREEN ── */
-    #loginScreen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .login-card {
-      width: 100%;
-      max-width: 380px;
-      background: var(--bg2);
-      border: 1px solid var(--border2);
-      border-radius: 16px;
-      padding: 2.5rem;
-    }
-    .login-logo {
-      font-family: var(--mono);
-      font-size: 1rem;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      display: block;
-    }
-    .login-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-    .login-sub {
-      color: var(--text2);
-      font-size: 13px;
-      margin-bottom: 2rem;
-    }
-
-    /* ── FORM ELEMENTS ── */
-    label {
-      display: block;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text2);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 6px;
-    }
-    input, select, textarea {
-      width: 100%;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 14px;
-      padding: 10px 14px;
-      outline: none;
-      transition: border-color 0.15s;
-      -webkit-appearance: none;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--accent);
-    }
-    textarea {
-      resize: vertical;
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.7;
-    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
+    #loginScreen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+    .login-card { width: 100%; max-width: 380px; background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px; padding: 2.5rem; }
+    .login-logo { font-family: var(--mono); font-size: 1rem; color: var(--accent); margin-bottom: 2rem; display: block; }
+    .login-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .login-sub { color: var(--text2); font-size: 13px; margin-bottom: 2rem; }
+    label { display: block; font-size: 12px; font-weight: 500; color: var(--text2); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: var(--font); font-size: 14px; padding: 10px 14px; outline: none; transition: border-color 0.15s; -webkit-appearance: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+    textarea { resize: vertical; font-family: var(--mono); font-size: 13px; line-height: 1.7; }
     .field { margin-bottom: 1.2rem; }
-
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 500;
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      padding: 10px 20px;
-      transition: opacity 0.15s, transform 0.1s;
-    }
-    .btn:hover { opacity: 0.85; }
-    .btn:active { transform: scale(0.98); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font); font-size: 14px; font-weight: 500; border: none; border-radius: var(--radius); cursor: pointer; padding: 10px 20px; transition: opacity 0.15s, transform 0.1s; }
+    .btn:hover { opacity: 0.85; } .btn:active { transform: scale(0.98); }
     .btn-primary { background: var(--accent); color: #0F172A; width: 100%; }
     .btn-publish { background: var(--green); color: #022C22; }
-    .btn-update  { background: var(--accent); color: #0F172A; }
-    .btn-delete  { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
-    .btn-clear   { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+    .btn-update { background: var(--accent); color: #0F172A; }
+    .btn-delete { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
+    .btn-clear { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
     .btn-sm { padding: 6px 12px; font-size: 12px; }
     .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    /* ── LAYOUT ── */
     #adminScreen { display: none; min-height: 100vh; }
-
-    .topbar {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(15,15,14,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    .topbar { position: sticky; top: 0; z-index: 50; background: rgba(15,15,14,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
     .topbar-logo { font-family: var(--mono); font-size: 0.9rem; color: var(--accent); }
     .topbar-right { display: flex; align-items: center; gap: 1rem; }
     .topbar-user { font-size: 12px; color: var(--text2); }
-    .btn-logout {
-      background: none; border: 1px solid var(--border);
-      border-radius: 6px; color: var(--text2);
-      font-size: 12px; padding: 4px 10px; cursor: pointer;
-    }
+    .btn-logout { background: none; border: 1px solid var(--border); border-radius: 6px; color: var(--text2); font-size: 12px; padding: 4px 10px; cursor: pointer; }
     .btn-logout:hover { color: var(--text); border-color: var(--border2); }
-
-    .main-layout {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      min-height: calc(100vh - 56px);
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar {
-      border-right: 1px solid var(--border);
-      padding: 1.5rem 1rem;
-      overflow-y: auto;
-    }
-    .sidebar-heading {
-      font-size: 11px; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text2); margin-bottom: 1rem; padding: 0 0.5rem;
-    }
-    .new-post-btn {
-      width: 100%;
-      background: var(--accent-bg);
-      border: 1px dashed rgba(96,165,250,0.3);
-      border-radius: var(--radius);
-      color: var(--accent);
-      font-family: var(--font);
-      font-size: 13px; font-weight: 500;
-      padding: 10px; cursor: pointer;
-      margin-bottom: 1rem;
-      transition: background 0.15s;
-    }
+    .main-layout { display: grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 56px); }
+    .sidebar { border-right: 1px solid var(--border); padding: 1.5rem 1rem; overflow-y: auto; }
+    .sidebar-heading { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 1rem; padding: 0 0.5rem; }
+    .new-post-btn { width: 100%; background: var(--accent-bg); border: 1px dashed rgba(96,165,250,0.3); border-radius: var(--radius); color: var(--accent); font-family: var(--font); font-size: 13px; font-weight: 500; padding: 10px; cursor: pointer; margin-bottom: 1rem; transition: background 0.15s; }
     .new-post-btn:hover { background: rgba(96,165,250,0.14); }
-
-    .post-item {
-      padding: 10px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-bottom: 2px;
-      transition: background 0.1s;
-      border: 1px solid transparent;
-    }
+    .post-item { padding: 10px 12px; border-radius: 8px; cursor: pointer; margin-bottom: 2px; transition: background 0.1s; border: 1px solid transparent; }
     .post-item:hover { background: var(--bg2); }
-    .post-item.active {
-      background: var(--bg3);
-      border-color: var(--border2);
-    }
-    .post-item-title {
-      font-size: 13px; font-weight: 500;
-      color: var(--text);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      margin-bottom: 3px;
-    }
-    .post-item-meta {
-      font-size: 11px; color: var(--text2);
-      display: flex; gap: 8px;
-    }
-    .post-badge {
-      font-size: 10px; padding: 1px 6px;
-      border-radius: 4px; font-weight: 500;
-    }
-    .badge-azure   { background: rgba(96,165,250,0.12); color: #60A5FA; }
-    .badge-csharp  { background: rgba(167,139,250,0.12); color: #A78BFA; }
-    .badge-sql     { background: rgba(52,211,153,0.12); color: #34D399; }
-    .badge-js      { background: rgba(252,211,77,0.12); color: #FCD34D; }
-    .badge-html    { background: rgba(248,113,113,0.12); color: #F87171; }
-    .badge-api     { background: rgba(52,211,153,0.12); color: #34D399; }
-
-    /* ── EDITOR ── */
-    .editor-panel {
-      padding: 2rem;
-      overflow-y: auto;
-    }
-    .editor-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 2rem;
-    }
+    .post-item.active { background: var(--bg3); border-color: var(--border2); }
+    .post-item-title { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
+    .post-item-meta { font-size: 11px; color: var(--text2); display: flex; gap: 8px; }
+    .post-badge { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-weight: 500; background: rgba(96,165,250,0.12); color: #60A5FA; }
+    .editor-panel { padding: 2rem; overflow-y: auto; }
+    .editor-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
     .editor-title-text { font-size: 1.1rem; font-weight: 600; }
     .editor-actions { display: flex; gap: 8px; }
-
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
-
-    .content-area { min-height: 320px; }
-
-    /* ── TABS ── */
     .tab-row { display: flex; gap: 2px; margin-bottom: 1rem; }
-    .tab-btn {
-      background: none; border: none;
-      padding: 6px 14px; border-radius: 6px;
-      font-family: var(--font); font-size: 13px;
-      color: var(--text2); cursor: pointer;
-      transition: all 0.15s;
-    }
+    .tab-btn { background: none; border: none; padding: 6px 14px; border-radius: 6px; font-family: var(--font); font-size: 13px; color: var(--text2); cursor: pointer; transition: all 0.15s; }
     .tab-btn.active { background: var(--bg3); color: var(--text); }
-    .tab-btn:hover:not(.active) { color: var(--text); }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-
-    /* ── PREVIEW ── */
-    .preview-box {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      min-height: 320px;
-      font-size: 14px; line-height: 1.8;
-      color: var(--text);
-    }
+    .tab-panel { display: none; } .tab-panel.active { display: block; }
+    .preview-box { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; min-height: 320px; font-size: 14px; line-height: 1.8; color: var(--text); }
     .preview-box h2 { font-size: 1.6rem; margin-bottom: 0.5rem; font-weight: 700; }
     .preview-box h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; font-weight: 600; color: var(--accent); }
-    .preview-box p  { color: var(--text2); margin-bottom: 0.75rem; }
-    .preview-box pre {
-      background: var(--bg3); border-radius: 8px;
-      padding: 1rem; font-family: var(--mono);
-      font-size: 12px; overflow-x: auto;
-      margin: 0.75rem 0; line-height: 1.7;
-    }
+    .preview-box p { color: var(--text2); margin-bottom: 0.75rem; }
+    .preview-box pre { background: var(--bg3); border-radius: 8px; padding: 1rem; font-family: var(--mono); font-size: 12px; overflow-x: auto; margin: 0.75rem 0; line-height: 1.7; }
     .preview-box ul { padding-left: 1.5rem; color: var(--text2); }
     .preview-box li { margin-bottom: 4px; }
-    .preview-box .meta { font-family: var(--mono); font-size: 11px; color: var(--text2); margin-bottom: 1.5rem; }
-
-    /* ── TOAST ── */
-    #toast {
-      position: fixed; bottom: 2rem; right: 2rem;
-      padding: 12px 20px; border-radius: 10px;
-      font-size: 13px; font-weight: 500;
-      display: none; z-index: 999;
-      animation: slideUp 0.2s ease;
-    }
+    #toast { position: fixed; bottom: 2rem; right: 2rem; padding: 12px 20px; border-radius: 10px; font-size: 13px; font-weight: 500; display: none; z-index: 999; }
     #toast.success { background: var(--green-bg); color: var(--green); border: 1px solid rgba(52,211,153,0.2); }
-    #toast.error   { background: var(--red-bg);   color: var(--red);   border: 1px solid rgba(248,113,113,0.2); }
-    @keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-    /* ── STATS BAR ── */
-    .stats-bar {
-      display: flex; gap: 1.5rem;
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
-    }
+    #toast.error { background: var(--red-bg); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
+    .stats-bar { display: flex; gap: 1.5rem; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.5rem; margin-bottom: 2rem; }
     .stat { text-align: center; }
     .stat-num { font-size: 1.4rem; font-weight: 600; color: var(--accent); font-family: var(--mono); }
     .stat-label { font-size: 11px; color: var(--text2); margin-top: 2px; }
-
-    /* ── TIPS ── */
-    .tip-box {
-      background: var(--accent-bg);
-      border: 1px solid rgba(96,165,250,0.15);
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      font-size: 12.5px; color: var(--text2);
-      margin-bottom: 1.2rem; line-height: 1.6;
-    }
+    .tip-box { background: var(--accent-bg); border: 1px solid rgba(96,165,250,0.15); border-radius: var(--radius); padding: 12px 14px; font-size: 12.5px; color: var(--text2); margin-bottom: 1.2rem; line-height: 1.6; }
     .tip-box strong { color: var(--accent); }
-
-    /* ── SLUG PREVIEW ── */
-    .slug-preview {
-      font-family: var(--mono); font-size: 11px;
-      color: var(--text2); margin-top: 4px;
-    }
+    .slug-preview { font-family: var(--mono); font-size: 11px; color: var(--text2); margin-top: 4px; }
     .slug-preview span { color: var(--accent); }
-
-    /* ── CHAR COUNT ── */
     .char-count { font-size: 11px; color: var(--text2); text-align: right; margin-top: 4px; }
-
-    /* ── EMPTY STATE ── */
-    .empty-state {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      min-height: 400px; color: var(--text2); text-align: center;
-    }
+    .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; color: var(--text2); text-align: center; }
     .empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
     .empty-title { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
-
-    @media (max-width: 768px) {
-      .main-layout { grid-template-columns: 1fr; }
-      .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
-      .form-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .main-layout { grid-template-columns: 1fr; } .sidebar { border-right: none; border-bottom: 1px solid var(--border); } .form-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════ LOGIN ═══════════════════ -->
 <div id="loginScreen">
   <div class="login-card">
     <span class="login-logo">&lt;TechStack/&gt;</span>
     <div class="login-title">Admin Panel</div>
     <div class="login-sub">Sign in to manage your blog posts</div>
-
     <div class="field">
       <label>Password</label>
       <input type="password" id="passwordInput" placeholder="Enter admin password" />
     </div>
     <button class="btn btn-primary" onclick="login()">Sign In</button>
-    <div id="loginError" style="color:var(--red);font-size:12px;margin-top:10px;display:none;">
-      Incorrect password. Try again.
-    </div>
+    <div id="loginError" style="color:var(--red);font-size:12px;margin-top:10px;display:none;">Incorrect password. Try again.</div>
   </div>
 </div>
 
-<!-- ═══════════════════ ADMIN ═══════════════════ -->
 <div id="adminScreen">
-
   <div class="topbar">
     <span class="topbar-logo">&lt;TechStack/&gt; Admin</span>
     <div class="topbar-right">
       <span class="topbar-user" id="apiStatus">Connecting...</span>
-      <a href="https://www.techstackblog.com" target="_blank"
-         style="font-size:12px;color:var(--text2);text-decoration:none;">
-        View Blog ↗
-      </a>
+      <a href="https://www.techstackblog.com" target="_blank" style="font-size:12px;color:var(--text2);text-decoration:none;">View Blog ↗</a>
       <button class="btn-logout" onclick="logout()">Sign Out</button>
     </div>
   </div>
 
   <div class="main-layout">
-
-    <!-- SIDEBAR -->
     <div class="sidebar">
       <div class="sidebar-heading">Posts</div>
       <button class="new-post-btn" onclick="newPost()">+ New Post</button>
-      <div id="postList">
-        <div style="color:var(--text2);font-size:13px;padding:0.5rem;">Loading posts...</div>
-      </div>
+      <div id="postList"><div style="color:var(--text2);font-size:13px;padding:0.5rem;">Loading posts...</div></div>
     </div>
 
-    <!-- EDITOR -->
     <div class="editor-panel">
-
-      <!-- EMPTY STATE -->
       <div id="emptyState" class="empty-state">
         <div class="empty-icon">✍️</div>
         <div class="empty-title">Select a post or create a new one</div>
         <div style="font-size:13px;">Your posts appear in the sidebar on the left</div>
       </div>
 
-      <!-- EDITOR FORM -->
       <div id="editorForm" style="display:none;">
-
         <div class="editor-header">
           <div class="editor-title-text" id="editorHeading">New Post</div>
           <div class="editor-actions">
@@ -400,7 +140,6 @@
           </div>
         </div>
 
-        <!-- STATS -->
         <div class="stats-bar" id="statsBar" style="display:none;">
           <div class="stat"><div class="stat-num" id="statViews">0</div><div class="stat-label">Views</div></div>
           <div class="stat"><div class="stat-num" id="statWords">0</div><div class="stat-label">Words</div></div>
@@ -408,19 +147,16 @@
           <div class="stat"><div class="stat-num" id="statDate">—</div><div class="stat-label">Published</div></div>
         </div>
 
-        <!-- TITLE -->
         <div class="field">
           <label>Post Title *</label>
-          <input type="text" id="fTitle" placeholder="e.g. Azure Service Bus: Topics and Dead Letter Queues"
-            oninput="autoSlug()" />
+          <input type="text" id="fTitle" placeholder="e.g. Azure Service Bus: Topics and Dead Letter Queues" oninput="autoSlug()" />
         </div>
 
-        <!-- SLUG + EXCERPT -->
         <div class="form-grid">
           <div class="field">
             <label>URL Slug *</label>
             <input type="text" id="fSlug" placeholder="e.g. azure-service-bus-deep-dive" />
-            <div class="slug-preview">URL: techstackblog.com/post/<span id="slugPreview">your-slug</span></div>
+            <div class="slug-preview">URL: techstackblog.com/post.html?slug=<span id="slugPreview">your-slug</span></div>
           </div>
           <div class="field">
             <label>Tech Tag *</label>
@@ -431,74 +167,41 @@
               <option value="JavaScript">JavaScript</option>
               <option value="HTML/CSS">HTML/CSS</option>
               <option value="REST API">REST API</option>
+              <option value="Computer Science">Computer Science</option>
             </select>
           </div>
         </div>
 
-        <!-- EXCERPT -->
         <div class="field">
           <label>Excerpt (shown on card) *</label>
-          <textarea id="fExcerpt" rows="2"
-            placeholder="One or two sentences that appear on the blog card. Make it compelling."
-            oninput="updateCharCount(this, 'excerptCount', 200)"></textarea>
+          <textarea id="fExcerpt" rows="2" placeholder="One or two sentences that appear on the blog card." oninput="updateCharCount(this, 'excerptCount', 200)"></textarea>
           <div class="char-count"><span id="excerptCount">0</span>/200 characters</div>
         </div>
 
-        <!-- READING TIME -->
         <div class="field" style="max-width:200px;">
           <label>Reading Time (minutes)</label>
           <input type="number" id="fReadingTime" value="8" min="1" max="60" />
         </div>
 
-        <!-- CONTENT TABS -->
         <div class="field">
           <label>Post Content (HTML) *</label>
           <div class="tip-box">
-            <strong>Tip:</strong> Write your content using simple HTML tags.
-            Use <code>&lt;h3&gt;</code> for headings, <code>&lt;p&gt;</code> for paragraphs,
-            <code>&lt;pre&gt;</code> for code blocks, <code>&lt;ul&gt;&lt;li&gt;</code> for lists.
-            No single quotes inside content — use double quotes or hyphens instead.
+            <strong>Tip:</strong> Use <code>&lt;h3&gt;</code> for headings, <code>&lt;p&gt;</code> for paragraphs, <code>&lt;pre&gt;</code> for code blocks, <code>&lt;ul&gt;&lt;li&gt;</code> for lists.
           </div>
           <div class="tab-row">
             <button class="tab-btn active" onclick="switchTab('write', this)">Write</button>
             <button class="tab-btn" onclick="switchTab('preview', this)">Preview</button>
-            <button class="tab-btn" onclick="switchTab('template', this)">Templates</button>
           </div>
-
           <div class="tab-panel active" id="tab-write">
-            <textarea class="content-area" id="fContent" rows="18"
-              placeholder="<h3>What is it?</h3>&#10;<p>Your explanation here...</p>&#10;<pre>// code example&#10;var x = 1;</pre>"
-              oninput="updateWordCount()"></textarea>
+            <textarea id="fContent" rows="18" placeholder="<h3>What is it?</h3>&#10;<p>Your explanation here...</p>" oninput="updateWordCount()"></textarea>
             <div class="char-count"><span id="wordCount">0</span> words</div>
           </div>
-
           <div class="tab-panel" id="tab-preview">
-            <div class="preview-box" id="previewBox">
-              <div style="color:var(--text2);font-style:italic;">Switch to Write tab and add content to see preview here.</div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="tab-template">
-            <div style="display:grid;gap:8px;">
-              <div style="color:var(--text2);font-size:13px;margin-bottom:4px;">Click a template to insert it into the editor:</div>
-              <button class="btn btn-clear" style="text-align:left;justify-content:flex-start;" onclick="insertTemplate('azure')">
-                ☁️ Azure Service / Feature post
-              </button>
-              <button class="btn btn-clear" style="text-align:left;justify-content:flex-start;" onclick="insertTemplate('csharp')">
-                🔷 C# / .NET code tutorial
-              </button>
-              <button class="btn btn-clear" style="text-align:left;justify-content:flex-start;" onclick="insertTemplate('concept')">
-                💡 Concept explanation post
-              </button>
-              <button class="btn btn-clear" style="text-align:left;justify-content:flex-start;" onclick="insertTemplate('lessons')">
-                📋 Lessons learned / Best practices
-              </button>
-            </div>
+            <div class="preview-box" id="previewBox"><div style="color:var(--text2);font-style:italic;">Switch to Write tab to see preview.</div></div>
           </div>
         </div>
 
         <input type="hidden" id="fId" value="" />
-
       </div>
     </div>
   </div>
@@ -507,11 +210,9 @@
 <div id="toast"></div>
 
 <script>
-// ─── CONFIG ───────────────────────────────────────────────────
 const API = "https://techblog-api-h0fdc9hkf5hmadg0.westus2-01.azurewebsites.net/api";
-const ADMIN_PASSWORD = "%%ADMIN_PASSWORD%%"; // ← change this to your own password
+const ADMIN_PASSWORD = "TechBlog@2026";
 
-// ─── AUTH ─────────────────────────────────────────────────────
 function login() {
   const val = document.getElementById("passwordInput").value;
   if (val === ADMIN_PASSWORD) {
@@ -525,36 +226,24 @@ function login() {
     document.getElementById("passwordInput").value = "";
   }
 }
-
-function logout() {
-  sessionStorage.removeItem("admin_auth");
-  location.reload();
-}
-
-// Allow Enter key on password field
-document.getElementById("passwordInput")
-  .addEventListener("keydown", e => { if (e.key === "Enter") login(); });
-
-// Auto-login if session exists
+function logout() { sessionStorage.removeItem("admin_auth"); location.reload(); }
+document.getElementById("passwordInput").addEventListener("keydown", e => { if (e.key === "Enter") login(); });
 if (sessionStorage.getItem("admin_auth") === "true") {
   document.getElementById("loginScreen").style.display = "none";
   document.getElementById("adminScreen").style.display = "block";
   loadPosts();
 }
 
-// ─── STATE ────────────────────────────────────────────────────
 let allPosts = [];
 let currentId = null;
 
-// ─── LOAD POSTS ───────────────────────────────────────────────
 async function loadPosts() {
   try {
     const res = await fetch(`${API}/posts`);
     if (!res.ok) throw new Error("API error " + res.status);
     allPosts = await res.json();
     renderSidebar(allPosts);
-    document.getElementById("apiStatus").textContent =
-      `${allPosts.length} posts · API connected ✓`;
+    document.getElementById("apiStatus").textContent = `${allPosts.length} posts · API connected ✓`;
     document.getElementById("apiStatus").style.color = "var(--green)";
   } catch (e) {
     document.getElementById("apiStatus").textContent = "API unreachable";
@@ -563,41 +252,23 @@ async function loadPosts() {
   }
 }
 
-// ─── SIDEBAR ──────────────────────────────────────────────────
-function badgeClass(tech) {
-  const map = {
-    "Azure": "badge-azure", "C#": "badge-csharp",
-    "SQL": "badge-sql", "JavaScript": "badge-js",
-    "HTML/CSS": "badge-html", "REST API": "badge-api"
-  };
-  return map[tech?.[0]] || "badge-azure";
-}
-
 function renderSidebar(posts) {
   const list = document.getElementById("postList");
-  if (!posts.length) {
-    list.innerHTML = `<div style="color:var(--text2);font-size:13px;padding:0.5rem;">No posts yet. Create your first one!</div>`;
-    return;
-  }
+  if (!posts.length) { list.innerHTML = `<div style="color:var(--text2);font-size:13px;padding:0.5rem;">No posts yet.</div>`; return; }
   list.innerHTML = posts.map(p => `
-    <div class="post-item ${currentId === p.id ? 'active' : ''}"
-         onclick="loadPost(${p.id})" id="item-${p.id}">
+    <div class="post-item ${currentId === p.id ? 'active' : ''}" onclick="loadPost(${p.id})" id="item-${p.id}">
       <div class="post-item-title">${p.title}</div>
       <div class="post-item-meta">
-        <span class="post-badge ${badgeClass(p.tech)}">${p.tech?.[0] || 'Azure'}</span>
-        <span>${p.date}</span>
-        <span>${p.readingTime}m</span>
+        <span class="post-badge">${(Array.isArray(p.tech)?p.tech[0]:p.tech) || 'Azure'}</span>
+        <span>${p.date}</span><span>${p.readingTime}m</span>
       </div>
-    </div>
-  `).join("");
+    </div>`).join("");
 }
 
-// ─── LOAD POST INTO EDITOR ────────────────────────────────────
 function loadPost(id) {
   const post = allPosts.find(p => p.id === id);
   if (!post) return;
   currentId = id;
-
   document.getElementById("emptyState").style.display = "none";
   document.getElementById("editorForm").style.display = "block";
   document.getElementById("editorHeading").textContent = "Edit Post";
@@ -606,23 +277,20 @@ function loadPost(id) {
   document.getElementById("deleteBtn").style.display = "inline-flex";
   document.getElementById("statsBar").style.display = "flex";
   document.getElementById("fId").value = id;
-
   document.getElementById("fTitle").value = post.title;
   document.getElementById("fSlug").value = post.slug;
   document.getElementById("fExcerpt").value = post.excerpt || "";
   document.getElementById("fContent").value = post.content || "";
   document.getElementById("fReadingTime").value = post.readingTime;
-  document.getElementById("fTech").value = post.tech?.[0] || "Azure";
+  document.getElementById("fTech").value = (Array.isArray(post.tech)?post.tech[0]:post.tech) || "Azure";
   document.getElementById("slugPreview").textContent = post.slug;
   document.getElementById("statDate").textContent = post.date;
   document.getElementById("statRead").textContent = post.readingTime;
-
   updateCharCount(document.getElementById("fExcerpt"), "excerptCount", 200);
   updateWordCount();
   renderSidebar(allPosts);
 }
 
-// ─── NEW POST ─────────────────────────────────────────────────
 function newPost() {
   currentId = null;
   document.getElementById("emptyState").style.display = "none";
@@ -650,57 +318,32 @@ function clearForm(silent) {
   if (!silent) showToast("Form cleared", "success");
 }
 
-// ─── SAVE / PUBLISH ───────────────────────────────────────────
 async function savePost(mode) {
-  const title   = document.getElementById("fTitle").value.trim();
-  const slug    = document.getElementById("fSlug").value.trim();
+  const title = document.getElementById("fTitle").value.trim();
+  const slug = document.getElementById("fSlug").value.trim();
   const excerpt = document.getElementById("fExcerpt").value.trim();
   const content = document.getElementById("fContent").value.trim();
-  const tech    = document.getElementById("fTech").value;
-  const time    = parseInt(document.getElementById("fReadingTime").value) || 8;
-  const id      = document.getElementById("fId").value;
-
-  if (!title)   { showToast("Title is required", "error"); return; }
-  if (!slug)    { showToast("Slug is required", "error"); return; }
+  const tech = document.getElementById("fTech").value;
+  const time = parseInt(document.getElementById("fReadingTime").value) || 8;
+  const id = document.getElementById("fId").value;
+  if (!title) { showToast("Title is required", "error"); return; }
+  if (!slug) { showToast("Slug is required", "error"); return; }
   if (!content) { showToast("Content is required", "error"); return; }
-
   const body = { title, slug, excerpt, content, tech, readingTime: time };
-  const btn  = mode === "publish"
-    ? document.getElementById("publishBtn")
-    : document.getElementById("updateBtn");
-
-  btn.disabled = true;
-  btn.textContent = "Saving...";
-
+  const btn = mode === "publish" ? document.getElementById("publishBtn") : document.getElementById("updateBtn");
+  btn.disabled = true; btn.textContent = "Saving...";
   try {
     let res;
     if (mode === "publish") {
-      res = await fetch(`${API}/posts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
+      res = await fetch(`${API}/posts`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     } else {
-      res = await fetch(`${API}/posts/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
+      res = await fetch(`${API}/posts/${id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     }
-
-    if (!res.ok) {
-      const err = await res.text();
-      throw new Error(err);
-    }
-
+    if (!res.ok) throw new Error(await res.text());
     const saved = await res.json();
-    showToast(
-      mode === "publish" ? "Post published successfully!" : "Post updated!",
-      "success"
-    );
+    showToast(mode === "publish" ? "Post published successfully!" : "Post updated!", "success");
     await loadPosts();
     loadPost(saved.id || parseInt(id));
-
   } catch (e) {
     showToast("Error: " + e.message, "error");
   } finally {
@@ -709,12 +352,10 @@ async function savePost(mode) {
   }
 }
 
-// ─── DELETE ───────────────────────────────────────────────────
 async function deletePost() {
   const id = document.getElementById("fId").value;
   if (!id) return;
   if (!confirm("Delete this post? This cannot be undone.")) return;
-
   try {
     const res = await fetch(`${API}/posts/${id}`, { method: "DELETE" });
     if (!res.ok) throw new Error("Delete failed");
@@ -723,141 +364,26 @@ async function deletePost() {
     await loadPosts();
     document.getElementById("editorForm").style.display = "none";
     document.getElementById("emptyState").style.display = "flex";
-  } catch (e) {
-    showToast("Error: " + e.message, "error");
-  }
+  } catch (e) { showToast("Error: " + e.message, "error"); }
 }
 
-// ─── AUTO SLUG ────────────────────────────────────────────────
 function autoSlug() {
   const title = document.getElementById("fTitle").value;
-  const slug  = title.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .trim();
+  const slug = title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
   document.getElementById("fSlug").value = slug;
   document.getElementById("slugPreview").textContent = slug || "your-slug";
 }
 
-// ─── TABS ─────────────────────────────────────────────────────
 function switchTab(name, btn) {
   document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
   document.getElementById("tab-" + name).classList.add("active");
   btn.classList.add("active");
   if (name === "preview") {
-    document.getElementById("previewBox").innerHTML =
-      document.getElementById("fContent").value || "<p style='color:var(--text2);font-style:italic;'>Nothing to preview yet.</p>";
+    document.getElementById("previewBox").innerHTML = document.getElementById("fContent").value || "<p style='color:var(--text2);font-style:italic;'>Nothing to preview yet.</p>";
   }
 }
 
-// ─── TEMPLATES ────────────────────────────────────────────────
-const TEMPLATES = {
-  azure: `<h3>What is [Service Name]?</h3>
-<p>Brief explanation of what this Azure service does and why it matters.</p>
-
-<h3>Key concepts</h3>
-<pre>Concept 1 - explanation
-Concept 2 - explanation
-Concept 3 - explanation</pre>
-
-<h3>How I used it at Blue Yonder</h3>
-<p>Describe your real-world use case here.</p>
-
-<h3>Code example</h3>
-<pre>// C# example
-var client = new ServiceBusClient(connectionString);
-// your code here</pre>
-
-<h3>Key lessons from production</h3>
-<ul>
-  <li>Lesson one you learned</li>
-  <li>Lesson two you learned</li>
-  <li>Lesson three you learned</li>
-</ul>
-
-<h3>Summary</h3>
-<p>When to use this service and what makes it valuable.</p>`,
-
-  csharp: `<h3>What we are building</h3>
-<p>Brief description of the C# concept or pattern.</p>
-
-<h3>The basics</h3>
-<pre>// Basic example
-public class Example
-{
-    public string Name { get; set; }
-    public void DoSomething() { }
-}</pre>
-
-<h3>Real-world example</h3>
-<pre>// Production pattern
-public async Task ProcessAsync(string input)
-{
-    var result = await _service.HandleAsync(input);
-    return result;
-}</pre>
-
-<h3>Common mistakes to avoid</h3>
-<ul>
-  <li>Mistake one and how to fix it</li>
-  <li>Mistake two and how to fix it</li>
-</ul>
-
-<h3>Summary</h3>
-<p>Key takeaway from this post.</p>`,
-
-  concept: `<h3>What is [Concept]?</h3>
-<p>Simple, plain-English explanation of the concept.</p>
-
-<h3>Why it matters</h3>
-<p>Explain the problem it solves.</p>
-
-<h3>How it works</h3>
-<pre>Step 1 - what happens first
-Step 2 - what happens next
-Step 3 - the result</pre>
-
-<h3>Real example</h3>
-<p>A concrete example from your work experience.</p>
-
-<h3>Common questions</h3>
-<p>Address the questions beginners always ask about this topic.</p>
-
-<h3>Summary</h3>
-<p>One sentence that captures the whole concept.</p>`,
-
-  lessons: `<h3>Background</h3>
-<p>Context for why you learned these lessons.</p>
-
-<h3>Lesson 1 - [title]</h3>
-<p>What happened and what you learned.</p>
-<pre>// Example showing the right approach</pre>
-
-<h3>Lesson 2 - [title]</h3>
-<p>What happened and what you learned.</p>
-
-<h3>Lesson 3 - [title]</h3>
-<p>What happened and what you learned.</p>
-
-<h3>What I would tell my past self</h3>
-<ul>
-  <li>Most important takeaway</li>
-  <li>Second most important</li>
-  <li>Third most important</li>
-</ul>`
-};
-
-function insertTemplate(type) {
-  document.getElementById("fContent").value = TEMPLATES[type];
-  switchTab("write", document.querySelector(".tab-btn.active"));
-  document.querySelector("[onclick=\"switchTab('write', this)\"]").click();
-  showToast("Template inserted - customize it!", "success");
-  updateWordCount();
-}
-
-// ─── HELPERS ──────────────────────────────────────────────────
 function updateCharCount(el, countId, max) {
   const len = el.value.length;
   const el2 = document.getElementById(countId);
@@ -866,8 +392,7 @@ function updateCharCount(el, countId, max) {
 }
 
 function updateWordCount() {
-  const text = document.getElementById("fContent").value
-    .replace(/<[^>]*>/g, " ").trim();
+  const text = document.getElementById("fContent").value.replace(/<[^>]*>/g, " ").trim();
   const words = text ? text.split(/\s+/).length : 0;
   document.getElementById("wordCount").textContent = words;
   document.getElementById("statWords").textContent = words;
@@ -877,22 +402,13 @@ function updateWordCount() {
 
 function showToast(msg, type) {
   const t = document.getElementById("toast");
-  t.textContent = msg;
-  t.className = type;
-  t.style.display = "block";
+  t.textContent = msg; t.className = type; t.style.display = "block";
   setTimeout(() => { t.style.display = "none"; }, 3500);
 }
 
-// Update slug preview on manual edit
-document.getElementById && setTimeout(() => {
-  const slugInput = document.getElementById("fSlug");
-  if (slugInput) {
-    slugInput.addEventListener("input", () => {
-      document.getElementById("slugPreview").textContent =
-        slugInput.value || "your-slug";
-    });
-  }
-}, 100);
+document.getElementById("fSlug").addEventListener("input", function() {
+  document.getElementById("slugPreview").textContent = this.value || "your-slug";
+});
 </script>
 </body>
 </html>

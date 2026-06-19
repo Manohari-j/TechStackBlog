@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Category | TechStack Blog</title>
+  <meta name="description" id="pageDesc" content="" />
+  <link rel="canonical" id="canonical" href="" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span>
+      </a>
+      <nav class="main-nav">
+        <a href="category.html?cat=azure">Azure</a>
+        <a href="category.html?cat=csharp">C#</a>
+        <a href="category.html?cat=computer-science">CS Fundamentals</a>
+        <a href="category.html?cat=web">Web</a>
+        <a href="category.html?cat=database">Database</a>
+        <a href="/#about">About</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="cat-hero">
+    <div class="cat-hero-inner">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        <span id="catName">Category</span>
+      </div>
+      <h1 class="cat-title" id="catTitle"></h1>
+      <p class="cat-desc" id="catDesc"></p>
+      <div class="cat-meta" id="catMeta"></div>
+    </div>
+  </section>
+
+  <section class="posts-section">
+    <div class="section-inner">
+      <div id="catPostsGrid" class="posts-grid">
+        <div class="loading-state">Loading posts...</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span></span>
+        <p>Engineering concepts. Clearly explained.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-heading">Topics</div>
+          <a href="category.html?cat=azure">Azure</a>
+          <a href="category.html?cat=csharp">C# / .NET</a>
+          <a href="category.html?cat=computer-science">CS Fundamentals</a>
+          <a href="category.html?cat=web">Web</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Connect</div>
+          <a href="https://github.com/Manohari-j/TechStackBlog" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/manohari-jayachandran" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechStack Blog</span>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/category.js"></script>
+</body>
+</html>

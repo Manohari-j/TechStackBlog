@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Loading... | TechStack Blog</title>
+  <meta name="description" id="pageDesc" content="" />
+  <meta property="og:title" id="ogTitle" content="" />
+  <meta property="og:description" id="ogDesc" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" id="ogUrl" content="" />
+  <meta property="og:site_name" content="TechStack Blog" />
+  <meta name="author" content="Manohari Jayachandran" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" id="canonical" href="" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span>
+      </a>
+      <nav class="main-nav">
+        <a href="category.html?cat=azure">Azure</a>
+        <a href="category.html?cat=csharp">C#</a>
+        <a href="category.html?cat=computer-science">CS Fundamentals</a>
+        <a href="category.html?cat=web">Web</a>
+        <a href="category.html?cat=database">Database</a>
+        <a href="/#about">About</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="post-main" id="postMain">
+    <div class="post-loading" id="postLoading">
+      <div class="loading-spinner"></div>
+      <p>Loading post...</p>
+    </div>
+
+    <div id="postContent" style="display:none;">
+
+      <div class="breadcrumb-wrap">
+        <div class="breadcrumb">
+          <a href="/">Home</a>
+          <span>›</span>
+          <a href="#" id="breadcrumbCat"></a>
+          <span>›</span>
+          <span id="breadcrumbTitle"></span>
+        </div>
+      </div>
+
+      <div class="post-header-wrap">
+        <div class="post-header">
+          <div class="post-tags" id="postTags"></div>
+          <h1 class="post-title" id="postTitle"></h1>
+          <div class="post-meta">
+            <span id="postDate"></span>
+            <span class="meta-dot">·</span>
+            <span id="postReading"></span>
+            <span class="meta-dot">·</span>
+            <span>By Manohari Jayachandran</span>
+          </div>
+          <div class="share-row">
+            <span class="share-label">Share:</span>
+            <a class="share-btn share-linkedin" id="shareLinkedIn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="share-btn share-twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">Twitter</a>
+            <a class="share-btn share-reddit" id="shareReddit" href="#" target="_blank" rel="noopener">Reddit</a>
+            <button class="share-btn share-copy" id="shareCopy">Copy link</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-layout">
+        <aside class="toc-sidebar" id="tocSidebar">
+          <div class="toc-inner">
+            <div class="toc-heading">On this page</div>
+            <nav id="tocNav"></nav>
+          </div>
+        </aside>
+
+        <article class="post-body" id="postBody"></article>
+      </div>
+
+      <div class="related-section section-inner">
+        <h2 class="section-title">Related Posts</h2>
+        <div id="relatedPosts" class="posts-grid"></div>
+      </div>
+
+      <div class="bottom-share section-inner">
+        <p>Found this useful? Share it with someone who would benefit.</p>
+        <div class="share-row">
+          <a class="share-btn share-linkedin" id="shareLinkedIn2" href="#" target="_blank" rel="noopener">Share on LinkedIn</a>
+          <a class="share-btn share-twitter" id="shareTwitter2" href="#" target="_blank" rel="noopener">Share on Twitter</a>
+          <a class="share-btn share-reddit" id="shareReddit2" href="#" target="_blank" rel="noopener">Share on Reddit</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span></span>
+        <p>Engineering concepts. Clearly explained.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-heading">Topics</div>
+          <a href="category.html?cat=azure">Azure</a>
+          <a href="category.html?cat=csharp">C# / .NET</a>
+          <a href="category.html?cat=computer-science">CS Fundamentals</a>
+          <a href="category.html?cat=web">Web</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Connect</div>
+          <a href="https://github.com/Manohari-j/TechStackBlog" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/manohari-jayachandran" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://dev.to/manohari" target="_blank" rel="noopener">Dev.to</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechStack Blog</span>
+      <a href="https://github.com/Manohari-j/TechStackBlog" target="_blank" rel="noopener">View source →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/post.js"></script>
+</body>
+</html>

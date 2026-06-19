@@ -20,6 +20,7 @@ public class PostsController : ControllerBase
         _context = context;
     }
 
+    /// <summary>GET /api/posts</summary>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PostDto>>> GetAll()
     {
@@ -28,6 +29,7 @@ public class PostsController : ControllerBase
         return Ok(posts);
     }
 
+    /// <summary>GET /api/posts/{slug}</summary>
     [HttpGet("{slug}")]
     public async Task<ActionResult<PostDto>> GetBySlug(string slug)
     {
@@ -37,6 +39,7 @@ public class PostsController : ControllerBase
         return Ok(post);
     }
 
+    /// <summary>POST /api/posts</summary>
     [HttpPost]
     public async Task<ActionResult<PostDto>> Create([FromBody] CreatePostDto dto)
     {
@@ -45,6 +48,26 @@ public class PostsController : ControllerBase
         return CreatedAtAction(nameof(GetBySlug), new { slug = post.Slug }, post);
     }
 
+    /// <summary>PUT /api/posts/{id} — used by admin.html to update a post</summary>
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<PostDto>> Update(int id, [FromBody] CreatePostDto dto)
+    {
+        var post = await _context.Posts.FindAsync(id);
+        if (post == null) return NotFound();
+
+        post.Title = dto.Title;
+        post.Slug = dto.Slug;
+        post.Excerpt = dto.Excerpt ?? post.Excerpt;
+        post.Content = dto.Content;
+        post.Tech = dto.Tech;
+        post.ReadingTime = dto.ReadingTime;
+        post.UpdatedAt = DateTime.UtcNow;
+
+        await _context.SaveChangesAsync();
+        return Ok(post);
+    }
+
+    /// <summary>DELETE /api/posts/{id}</summary>
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
@@ -52,22 +75,4 @@ public class PostsController : ControllerBase
         if (!deleted) return NotFound();
         return NoContent();
     }
-
-    [HttpPut("{id:int}")]
-public async Task<ActionResult<PostDto>> Update(int id, [FromBody] CreatePostDto dto)
-{
-    var post = await _context.Posts.FindAsync(id);
-    if (post == null) return NotFound();
-
-    post.Title = dto.Title;
-    post.Slug = dto.Slug;
-    post.Excerpt = dto.Excerpt ?? post.Excerpt;
-    post.Content = dto.Content;
-    post.Tech = dto.Tech;
-    post.ReadingTime = dto.ReadingTime;
-    post.UpdatedAt = DateTime.UtcNow;
-
-    await _context.SaveChangesAsync();
-    return Ok(post);
-}
 }
