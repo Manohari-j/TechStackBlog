@@ -3,166 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="G0yHqHamZUkq8SaGsBCn2qZZJOeWoRBvKRgpAWzI0gQ" /> <!-- For Calm_island -->
+  <title>TechStack Blog — Azure, C#, System Design and More</title>
+  <meta name="description" content="TechStack Blog by Manohari Jayachandran — Azure integration, C#, SOLID Principles, Design Patterns, System Design, SQL and more." />
+  <meta name="keywords" content="Azure, C#, SOLID Principles, Design Patterns, System Design, Logic Apps, Service Bus, APIM, SQL, JavaScript" />
+  <meta name="author" content="Manohari Jayachandran" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="TechStack Blog — Azure, C#, System Design and More" />
+  <meta property="og:description" content="Real production experience, clear explanations." />
+  <meta property="og:url" content="https://www.techstackblog.com" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://www.techstackblog.com" />
+   <meta name="google-site-verification" content="G0yHqHamZUkq8SaGsBCn2qZZJOeWoRBvKRgpAWzI0gQ" /> <!-- For Calm_island -->
   <meta name="google-site-verification" content="eP1SEwsUrxtBEEF-TAbKyaqCburYarJ-fSobUKoc0GI" /> <!-- For TechStackBlog -->
-  <!-- SEO Meta Tags -->
-<meta name="description" content="TechStack Blog - Learn Azure, C#, SQL, REST APIs and full-stack development with real production examples from an Azure integration engineer." />
-<meta name="keywords" content="Azure, Logic Apps, Service Bus, APIM, API Management, C#, ASP.NET Core, Azure SQL, cloud engineering, integration" />
-<meta name="author" content="Manohari Jayachandran" />
-<meta name="robots" content="index, follow" />
-
-<!-- Open Graph - controls how link looks when shared on LinkedIn/Twitter -->
-<meta property="og:title" content="TechStack Blog - Azure and Full Stack Engineering" />
-<meta property="og:description" content="Real-world Azure integration patterns, C# tutorials, and cloud engineering from production experience." />
-<meta property="og:url" content="https://www.techstackblog.com" />
-<meta property="og:type" content="website" />
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://www.techstackblog.com" />
-  <title>TechStack Blog — Learn the Full Stack</title>
-  <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <div class="logo">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">TechStack</span>
-        <span class="logo-bracket">/&gt;</span>
-      </div>
-      <nav class="main-nav">
-        <a href="#topics">Topics</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#posts">Posts</a>
+      <a href="/" class="logo">
+        <span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="category.html?cat=azure">Azure</a>
+        <a href="category.html?cat=csharp">C#</a>
+        <a href="category.html?cat=computer-science">CS Fundamentals</a>
+        <a href="category.html?cat=web">Web</a>
+        <a href="category.html?cat=database">Database</a>
         <a href="#about">About</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+      <div class="header-right">
+        <div class="search-wrap">
+          <input type="text" id="searchInput" placeholder="Search posts..." autocomplete="off" />
+          <div id="searchResults" class="search-dropdown"></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">A living, learning project</p>
-      <h1 class="hero-title">Full-Stack <em>Azure</em><br>Engineering Blog</h1>
-      <p class="hero-sub">
-        One project. Six technologies. Infinite learning. Built with HTML, CSS, JavaScript, SQL, C# REST API, and Microsoft Azure — all working together.
-      </p>
-      <div class="hero-tags">
-        <span class="tag tag-html">HTML/CSS</span>
-        <span class="tag tag-js">JavaScript</span>
-        <span class="tag tag-sql">SQL</span>
-        <span class="tag tag-cs">C# / .NET</span>
-        <span class="tag tag-api">REST API</span>
-        <span class="tag tag-azure">Azure</span>
-      </div>
-    </div>
-    <div class="hero-graphic" aria-hidden="true">
-      <div class="code-block">
-        <span class="line"><span class="kw">GET</span> /api/posts</span>
-        <span class="line"><span class="cm">// 200 OK</span></span>
-        <span class="line">{</span>
-        <span class="line">  <span class="str">"title"</span>: <span class="str">"Azure Logic Apps"</span>,</span>
-        <span class="line">  <span class="str">"tech"</span>: [<span class="str">"C#"</span>, <span class="str">"Azure"</span>, <span class="str">"SQL"</span>]</span>
-        <span class="line">}</span>
+      <p class="hero-eyebrow">By Manohari Jayachandran · Azure Cloud &amp; Integration Engineer</p>
+      <h1 class="hero-title">Engineering concepts.<br><em>Clearly explained.</em></h1>
+      <p class="hero-sub">Azure integration, C#, SOLID Principles, Design Patterns, System Design and more — written from real production experience at enterprise scale.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" id="postCount">12</span><span class="stat-label">Posts</span></div>
+        <div class="stat"><span class="stat-num">6+</span><span class="stat-label">Topics</span></div>
+        <div class="stat"><span class="stat-num">Weekly</span><span class="stat-label">Updates</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ARCHITECTURE BANNER -->
-  <section id="architecture" class="arch-section">
-    <div class="arch-inner">
-      <h2 class="section-title">How It All Connects</h2>
-      <p class="section-sub">Every layer talks to the next. Here's the full picture.</p>
-      <div class="arch-flow">
-        <div class="arch-node">
-          <div class="arch-icon">🌐</div>
-          <div class="arch-label">Browser</div>
-          <div class="arch-desc">HTML + CSS + JS</div>
-        </div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node">
-          <div class="arch-icon">⚡</div>
-          <div class="arch-label">REST API</div>
-          <div class="arch-desc">C# / ASP.NET</div>
-        </div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node">
-          <div class="arch-icon">🗄️</div>
-          <div class="arch-label">Database</div>
-          <div class="arch-desc">Azure SQL</div>
-        </div>
-        <div class="arch-arrow arch-arrow-up">↑</div>
-        <div class="arch-node arch-node-azure">
-          <div class="arch-icon">☁️</div>
-          <div class="arch-label">Azure Cloud</div>
-          <div class="arch-desc">Hosting + Auth + Monitoring</div>
-        </div>
-      </div>
+  <section class="cats-section">
+    <div class="cats-inner">
+      <button class="cat-pill active" data-cat="all">All Posts</button>
+      <button class="cat-pill" data-cat="Azure">☁️ Azure</button>
+      <button class="cat-pill" data-cat="C#">🔷 C#</button>
+      <button class="cat-pill" data-cat="JavaScript">⚡ JavaScript</button>
+      <button class="cat-pill" data-cat="SQL">🗄️ SQL</button>
+      <button class="cat-pill" data-cat="HTML/CSS">🎨 HTML/CSS</button>
+      <button class="cat-pill" data-cat="REST API">🔌 REST API</button>
     </div>
   </section>
 
-  <!-- TOPIC CARDS -->
-  <section id="topics" class="topics-section">
+  <section class="featured-section" id="featuredSection">
     <div class="section-inner">
-      <h2 class="section-title">Learn Each Technology</h2>
-      <p class="section-sub">Click any card to read the full post. New posts added weekly.</p>
+      <div id="featuredPost"></div>
+    </div>
+  </section>
+
+  <section class="posts-section">
+    <div class="section-inner">
+      <div class="posts-header">
+        <h2 class="section-title" id="postsTitle">All Posts</h2>
+        <select id="sortSelect">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="reading">Shortest read</option>
+        </select>
+      </div>
       <div id="postsGrid" class="posts-grid">
-        <!-- Filled by JavaScript -->
-        <div class="loading-state">Loading posts from API...</div>
+        <div class="loading-state">Loading posts...</div>
       </div>
+      <div id="pagination" class="pagination"></div>
     </div>
   </section>
 
-  <!-- RECENT POSTS -->
-  <section id="posts" class="recent-section">
-    <div class="section-inner">
-      <h2 class="section-title">Recent Posts</h2>
-      <div id="recentList" class="recent-list">
-        <!-- Filled by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
   <section id="about" class="about-section">
     <div class="about-inner">
-      <h2 class="section-title">About This Project</h2>
-      <p>
-        This blog is itself the learning project. Every post explains a technology used to build this very site.
-        The frontend is pure HTML, CSS, and JavaScript. The backend is a C# ASP.NET Core API.
-        The data lives in Azure SQL. Everything is hosted on Microsoft Azure and deployed via GitHub Actions.
-      </p>
-      <p>
-        The source code is fully open on GitHub. Clone it, run it locally, deploy your own version.
-        Every commit is a step in the learning journey.
-      </p>
-      <a href="https://github.com/Manohari-j/TechStackBlog/tree/main/TechBlog" class="cta-btn" target="_blank" rel="noopener">
-        View on GitHub →
-      </a>
+      <div class="about-text">
+        <h2 class="section-title">About This Blog</h2>
+        <p>TechStack Blog is written by <strong>Manohari Jayachandran</strong>, an Azure Cloud and Integration Engineer with production experience building SIAM integration platforms connecting Salesforce and ServiceNow at Blue Yonder.</p>
+        <p>Every post is written from real experience. The code examples are from live systems. The lessons are from real incidents.</p>
+        <p>The blog itself is a full-stack Azure project — C# ASP.NET Core REST API, Azure SQL, Static Web Apps, GitHub Actions CI/CD. Every technology it teaches is used to build it.</p>
+        <div class="about-links">
+          <a href="https://github.com/Manohari-j/TechStackBlog" target="_blank" rel="noopener" class="about-link">GitHub →</a>
+          <a href="https://www.linkedin.com/in/manohari-jayachandran" target="_blank" rel="noopener" class="about-link">LinkedIn →</a>
+          <a href="https://dev.to/manohari" target="_blank" rel="noopener" class="about-link">Dev.to →</a>
+        </div>
+      </div>
+      <div class="about-topics">
+        <h3>Topics covered</h3>
+        <div class="topic-grid">
+          <a href="category.html?cat=azure" class="topic-card"><span class="topic-icon">☁️</span><span class="topic-name">Azure</span><span class="topic-sub">Logic Apps, Service Bus, APIM, Functions, App Insights</span></a>
+          <a href="category.html?cat=csharp" class="topic-card"><span class="topic-icon">🔷</span><span class="topic-name">C# / .NET</span><span class="topic-sub">LINQ, Lambda, ASP.NET Core, Entity Framework</span></a>
+          <a href="category.html?cat=computer-science" class="topic-card"><span class="topic-icon">💡</span><span class="topic-name">CS Fundamentals</span><span class="topic-sub">SOLID, Design Patterns, System Design, OOP, DSA</span></a>
+          <a href="category.html?cat=web" class="topic-card"><span class="topic-icon">🌐</span><span class="topic-name">Web</span><span class="topic-sub">HTML, CSS, JavaScript, REST API</span></a>
+          <a href="category.html?cat=database" class="topic-card"><span class="topic-icon">🗄️</span><span class="topic-name">Database</span><span class="topic-sub">SQL, Azure SQL, Entity Framework Core</span></a>
+          <a href="category.html?cat=devops" class="topic-card"><span class="topic-icon">⚙️</span><span class="topic-name">DevOps</span><span class="topic-sub">CI/CD, GitHub Actions, Azure DevOps, YAML</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- POST MODAL -->
-  <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-card">
-      <button class="modal-close" id="modalClose" aria-label="Close post">✕</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="logo"><span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span></span>
-      <span>Built to learn. Shared to teach.</span>
-      <span>© 2025 — MIT License</span>
+      <div class="footer-brand">
+        <span class="logo"><span class="logo-bracket">&lt;</span>TechStack<span class="logo-bracket">/&gt;</span></span>
+        <p>Engineering concepts. Clearly explained.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-heading">Topics</div>
+          <a href="category.html?cat=azure">Azure</a>
+          <a href="category.html?cat=csharp">C# / .NET</a>
+          <a href="category.html?cat=computer-science">CS Fundamentals</a>
+          <a href="category.html?cat=web">Web</a>
+          <a href="category.html?cat=database">Database</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Connect</div>
+          <a href="https://github.com/Manohari-j/TechStackBlog" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/manohari-jayachandran" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://dev.to/manohari" target="_blank" rel="noopener">Dev.to</a>
+          <a href="https://medium.com/@manohari" target="_blank" rel="noopener">Medium</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechStack Blog · Built with C#, Azure, and GitHub Actions</span>
+      <a href="https://github.com/Manohari-j/TechStackBlog" target="_blank" rel="noopener">View source →</a>
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
