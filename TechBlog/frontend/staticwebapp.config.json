@@ -1,0 +1,18 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/post.html",
+      "/category.html",
+      "/admin.html",
+      "/sitemap.xml",
+      "/css/*",
+      "/js/*",
+      "/*.{png,jpg,gif,ico,svg,webp,woff,woff2}"
+    ]
+  },
+  "mimeTypes": {
+    ".json": "application/json",
+    ".xml":  "application/xml"
+  }
+}
