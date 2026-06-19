@@ -21,13 +21,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore packages
-        run: dotnet restore TechBlog/backend/TechBlog.Api.csproj
+        run: dotnet restore backend/TechBlog.Api.csproj
 
       - name: Build
-        run: dotnet build TechBlog/backend/TechBlog.Api.csproj --configuration Release --no-restore
+        run: dotnet build backend/TechBlog.Api.csproj --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish TechBlog/backend/TechBlog.Api.csproj -c Release -o ./publish
+        run: dotnet publish backend/TechBlog.Api.csproj -c Release -o ./publish
 
       - name: Zip publish output
         run: |
