@@ -17,6 +17,10 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
 
 builder.Services.AddScoped<IPostService, PostService>();
 
+builder.Services.AddApplicationInsightsTelemetry(
+    builder.Configuration["ApplicationInsights:ConnectionString"]
+);
+
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins(
