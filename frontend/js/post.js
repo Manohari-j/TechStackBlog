@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   updatePageMeta(post);
   initProgressBar();
   initShareButtons(post);
+  loadGiscus(post.slug); 
 
   const allPosts = await fetchPosts();
   renderRelated(post, allPosts);
@@ -205,4 +206,31 @@ function showError(msg) {
       <p style="color:var(--text2)">${msg}</p>
       <a href="/" style="margin-top:1rem;display:inline-block;font-family:var(--font-mono);font-size:0.85rem;color:var(--accent)">← Back to all posts</a>
     </div>`;
+}
+
+function loadGiscus(slug) {
+  const container = document.getElementById("giscusContainer");
+  if (!container) return;
+
+  // Clear any previous instance (in case of SPA-style navigation)
+  container.innerHTML = "";
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.setAttribute("data-repo", "Manohari-j/TechStackBlog");
+  script.setAttribute("data-repo-id", "R_kgDOSxdugQ");
+  script.setAttribute("data-category", "General");
+  script.setAttribute("data-category-id", "DIC_kwDOSxdugc4DAJZo");
+  script.setAttribute("data-mapping", "specific");
+  script.setAttribute("data-term", slug);
+  script.setAttribute("data-strict", "0");
+  script.setAttribute("data-reactions-enabled", "1");
+  script.setAttribute("data-emit-metadata", "0");
+  script.setAttribute("data-input-position", "bottom");
+  script.setAttribute("data-theme", "preferred_color_scheme");
+  script.setAttribute("data-lang", "en");
+  script.setAttribute("crossorigin", "anonymous");
+  script.async = true;
+
+  container.appendChild(script);
 }
